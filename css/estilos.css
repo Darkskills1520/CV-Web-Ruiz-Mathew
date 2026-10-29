@@ -1,0 +1,116 @@
+/* ===== Tema negro y rojo ===== */
+:root {
+  --negro: #0d0d0d;
+  --gris: #1b1b1b;
+  --gris-claro: #262626;
+  --rojo: #e10600;
+  --rojo-oscuro: #9b0400;
+  --texto: #eeeeee;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--negro);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* ----- Cabecera con corte diagonal ----- */
+header {
+  background: linear-gradient(135deg, #000 55%, var(--rojo-oscuro));
+  text-align: center;
+  padding: 35px 15px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  padding-bottom: 60px;
+}
+
+.foto {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--rojo);
+  box-shadow: 0 0 0 5px #000, 0 0 25px rgba(225, 6, 0, .6);
+}
+
+header h1 { margin-top: 14px; font-size: 2.1rem; letter-spacing: 1px; }
+.subtitulo { color: var(--rojo); font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+
+/* ----- Menú en forma de botones ----- */
+nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 18px;
+  border: 2px solid var(--rojo);
+  border-radius: 30px;
+  transition: .25s;
+}
+nav a:hover { background: var(--rojo); transform: translateY(-2px); }
+
+main { max-width: 920px; margin: -20px auto 25px; padding: 0 15px; }
+
+/* ----- Secciones con formas distintas ----- */
+section {
+  background: var(--gris);
+  padding: 26px 30px;
+  margin-bottom: 26px;
+  border-left: 6px solid var(--rojo);
+}
+
+/* impares: esquinas cortadas */
+section:nth-of-type(odd) {
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+}
+
+/* pares: esquinas redondeadas asimétricas */
+section:nth-of-type(even) {
+  border-radius: 40px 8px 40px 8px;
+}
+
+/* ----- Títulos ----- */
+h2 {
+  display: inline-block;
+  background: var(--rojo);
+  color: #fff;
+  padding: 6px 22px;
+  margin-bottom: 16px;
+  transform: skewX(-12deg);
+  font-size: 1.2rem;
+}
+
+h3 { color: var(--rojo); margin: 16px 0 6px; font-size: 1.05rem; }
+ul { margin-left: 22px; }
+li::marker { color: var(--rojo); }
+
+/* ----- Tabla ----- */
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #3a3a3a; padding: 10px; text-align: left; }
+th { background: var(--rojo); color: #fff; }
+tbody tr:nth-child(even) { background: var(--gris-claro); }
+
+/* ----- Proyectos como tarjetas ----- */
+article {
+  background: var(--gris-claro);
+  border-radius: 0 30px 0 30px;
+  border-top: 3px solid var(--rojo);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  transition: .25s;
+}
+article:hover { transform: translateX(8px); box-shadow: -6px 6px 0 var(--rojo); }
+article h3 { margin-top: 0; }
+
+a { color: #ff4d47; }
+a:hover { color: #fff; }
+
+footer { text-align: center; padding: 22px; color: #999; font-size: .9rem; border-top: 3px solid var(--rojo); }
+
+/* ----- Celular ----- */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.5rem; }
+  section { padding: 20px 18px; }
+}
